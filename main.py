@@ -1,5 +1,6 @@
 from rivescript import RiveScript
 from exporter import export
+import datetime
 def run():
     bot = RiveScript()
     bot.load_directory("./brain")
@@ -13,7 +14,7 @@ def run():
     bot.deparse()
     name= bot.get_uservars().get('localuser').get('name')
     id = bot.get_uservars().get('localuser').get('id')
-    export(name,id)
+    export(name,id, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 if __name__ == "__main__":
     run()

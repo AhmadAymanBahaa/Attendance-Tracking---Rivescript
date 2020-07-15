@@ -1,21 +1,10 @@
-import openpyxl
+import xlsxwriter
 
-workbookName = 'attendance.xlsx'
-workbook = openpyxl. load_workbook(workbookName)
+workbook = xlsxwriter.Workbook('attendance.xlsx')
+worksheet = workbook.add_worksheet()
 
-
-def export(name, id, time):
-
-    for wks in workbook.worksheets:
-        wks.cell(1,1).value = "Name"
-        wks.cell(1,2).value = "ID"
-        wks.cell(1,3).value = "Time"
-
-        x = wks.max_row + 1
-        wks.cell(x, 1 ).value = name
-        wks.cell(x, 2).value = id
-        wks.cell(x, 3).value = time
-
-    workbook.save(workbookName)
+def export(name,id,time):
+    worksheet.write(0,0,name)
+    worksheet.write(0,1,id)
+    worksheet.write(0,2,time)
     workbook.close()
-

@@ -1,9 +1,10 @@
 ! version = 2.0
 
 + *
-- <set name=<formal>> Hello <get name> \n Please enter your ID {topic=id}
+* <star> != undefined => <set name=<formal>> Hello <get name> \n Please enter your ID
+* <star> != '' => <set name=<formal>> Hello <get name> \n Please enter your ID
+-Please Enter Required Field
 
-> topic id
-    + *
-    - <set id=<star>> You have been registered
-> topic
++ 1*
+-<set id=<star>> You have been registered.
+
